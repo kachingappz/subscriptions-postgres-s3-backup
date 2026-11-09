@@ -1,0 +1,20 @@
+# Third-party GitHub Actions are pinned to full commit SHAs. This entry keeps
+# those pins current; everything else (GitHub-owned actions, other ecosystems)
+# relies on Dependabot security updates only.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    allow:
+      - dependency-name: docker/build-push-action
+      - dependency-name: docker/login-action
+      - dependency-name: docker/metadata-action
+      - dependency-name: docker/setup-buildx-action
+      - dependency-name: docker/setup-qemu-action
+    groups:
+      third-party-actions:
+        patterns: ["*"]
